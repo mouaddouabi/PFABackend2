@@ -105,4 +105,17 @@ public class LotServiceImpl implements LotService {
         return res;
     }
 
+    public List<Lot> findLotFumNotCondMod(Long id) {
+        List<Lot> all = lotRepository.findAll();
+        List<Lot> res = new ArrayList<>();
+        for(Lot lot:all){
+            if(lot.getCodeLot().equals(id)){
+                res.add(lot);
+            }
+            else if(lot.getFicheFumigation()!=null && lot.getFicheConditionnement()==null){
+                res.add(lot);
+            }
+        }
+        return res;
+    }
 }

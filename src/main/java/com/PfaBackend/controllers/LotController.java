@@ -37,6 +37,11 @@ public class LotController {
         System.out.println(lotService.findLotFumNotCond());
         return lotService.findLotFumNotCond();
     }
+    @GetMapping("/lot/fumnotcondmod/{id}")
+    public List<Lot> getLotFumNotCondmod(@PathVariable(value = "id") Long id){
+        System.out.println(lotService.findLotFumNotCondMod(id));
+        return lotService.findLotFumNotCondMod(id);
+    }
     @GetMapping("/lot/rec")
     public List<Lot> getAllrec(){
         return lotService.findAllRec();

@@ -41,7 +41,7 @@ public class Emballage {
    @JsonIgnore
    @OneToOne(mappedBy = "emballage")
    private FicheConditionnement ficheConditionnement;
-   @OneToOne(cascade = CascadeType.ALL)
+   @OneToOne()
    @JoinColumn(name = "id_op", referencedColumnName = "id")
    private Operateurs operateur;
 }
