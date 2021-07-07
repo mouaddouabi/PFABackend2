@@ -1,7 +1,10 @@
 package com.PfaBackend.controllers;
 
 import com.PfaBackend.beans.FicheConditionnement;
+import com.PfaBackend.beans.FicheReception;
+import com.PfaBackend.beans.Tracabilite;
 import com.PfaBackend.services.FicheConditionnementService;
+import com.PfaBackend.services.TracabiliteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +19,8 @@ public class FicheConditionnementController {
 
     @Autowired
     private FicheConditionnementService ficheconditionnementService;
-
+    @Autowired
+    private TracabiliteService tracabiliteService;
     @PostMapping("/ficheconditionnement")
     public FicheConditionnement save(@RequestBody FicheConditionnement ficheconditionnement){
         return ficheconditionnementService.save(ficheconditionnement);
@@ -51,5 +55,10 @@ public class FicheConditionnementController {
     @GetMapping("/ficheconditionnement/count")
     public long count(){
         return ficheconditionnementService.count();
+    }
+
+    @GetMapping("/ficheconditionnement/lot/{id}")
+    public FicheConditionnement findFicheByLot(@PathVariable(value = "id") Long id){
+        return ficheconditionnementService.findFicheByLot(id);
     }
 }

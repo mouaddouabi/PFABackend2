@@ -28,4 +28,5 @@ public interface FicheConditionnementService {
 
     long count();
 
+    FicheConditionnement findFicheByLot(Long id);
 }

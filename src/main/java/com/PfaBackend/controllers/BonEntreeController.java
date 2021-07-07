@@ -1,6 +1,7 @@
 package com.PfaBackend.controllers;
 
 import com.PfaBackend.beans.BonEntree;
+import com.PfaBackend.beans.FicheConditionnement;
 import com.PfaBackend.services.BonEntreeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,8 +32,10 @@ public class BonEntreeController {
     public BonEntree update(@PathVariable(value = "id") Long id,@RequestBody BonEntree bonentree){
         return bonentreeService.update(id,bonentree);
     }
-
-
+    @GetMapping("/bonentree/lot/{id}")
+    public BonEntree findFicheByLot(@PathVariable(value = "id") Long id){
+        return bonentreeService.findFicheByLot(id);
+    }
     @GetMapping("/bonentree")
     public List<BonEntree> getAll(){
         return bonentreeService.findAll();

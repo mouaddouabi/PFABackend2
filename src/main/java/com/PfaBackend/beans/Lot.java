@@ -52,6 +52,7 @@ public class Lot {
    @JsonIgnore
    @OneToOne(mappedBy = "lot")
    private FicheConditionnement ficheConditionnement;
+   @JsonIgnore
    @OneToOne(mappedBy = "lot")
    private Tracabilite tracabilite;
 

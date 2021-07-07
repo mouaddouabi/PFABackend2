@@ -68,4 +68,9 @@ public class BonEntreeServiceImpl implements BonEntreeService {
         return bonentreeRepository.save(bonentree);
     }
 
+    @Override
+    public BonEntree findFicheByLot(Long id) {
+        return bonentreeRepository.findFicheByLot(id);
+    }
+
 }

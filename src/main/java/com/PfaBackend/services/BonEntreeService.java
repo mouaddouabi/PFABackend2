@@ -29,4 +29,6 @@ public interface BonEntreeService {
     long count();
 
     BonEntree update(Long id, BonEntree bonentree);
+
+    BonEntree findFicheByLot(Long id);
 }

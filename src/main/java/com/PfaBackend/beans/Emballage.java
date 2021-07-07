@@ -14,6 +14,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -39,8 +40,8 @@ public class Emballage {
    @JoinColumn(name = "codeEmbg", referencedColumnName = "codeEmbg")
    private FicheMaterieEmb ficheMaterieEmb;
    @JsonIgnore
-   @OneToOne(mappedBy = "emballage")
-   private FicheConditionnement ficheConditionnement;
+   @OneToMany(mappedBy = "emballage")
+   private Set<FicheConditionnement> ficheConditionnement;
    @OneToOne()
    @JoinColumn(name = "id_op", referencedColumnName = "id")
    private Operateurs operateur;

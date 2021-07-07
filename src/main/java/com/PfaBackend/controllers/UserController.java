@@ -32,4 +32,11 @@ public class UserController {
    }
     @PutMapping("/{id}")
     public User modifierInfo(@PathVariable("id")Long id,@RequestBody User user){return userServices.upadateinfos(id,user); }
+
+    @PutMapping("updatepass/{id}")
+    public User modifierpass(@PathVariable("id")Long id,@RequestBody String pwd){
+       return userServices.updatePass(id,pwd);
+    }
+
 }
+

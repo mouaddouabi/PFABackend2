@@ -37,7 +37,7 @@ public class FicheConditionnement{
    @JsonManagedReference
    @OneToMany(mappedBy = "ficheConditionnement")
    private Set<Unites> unites;
-   @OneToOne
+   @ManyToOne
    @JoinColumn(name = "codeEmb", referencedColumnName = "codeEmb")
    private Emballage emballage;
 

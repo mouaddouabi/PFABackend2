@@ -34,4 +34,11 @@ public class UserServices {
     public User findByemail(String email) {
         return userRepository.findByEmail(email);
     }
+
+    public User updatePass(Long id, String pwd) {
+        User user = userRepository.findUserById(id);
+        user.setPassword(pwd);
+        System.out.println(user);
+        return userRepository.save(user);
+    }
 }
