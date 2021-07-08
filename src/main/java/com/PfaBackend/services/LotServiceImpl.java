@@ -118,4 +118,34 @@ public class LotServiceImpl implements LotService {
         }
         return res;
     }
+
+    @Override
+    public List<Lot> findAllFum() {
+        List<Lot> lots = lotRepository.findAll();
+        List<Lot> fum = new ArrayList<>();
+        for(Lot l:lots){
+            if(l.getBonEntree() !=null && l.getFicheFumigation()==null){
+                if(l.getBonEntree().getDecision().equals("Acceptation")){
+                    fum.add(l);
+                }
+            }
+        }
+        return fum;
+    }
+
+    @Override
+    public List<Lot> findLotFumMod(Long id) {
+        List<Lot> all = lotRepository.findAll();
+        List<Lot> res = new ArrayList<>();
+        for(Lot lot:all){
+            if(lot.getCodeLot().equals(id)){
+                res.add(lot);
+            }
+            else if(lot.getFicheReception()!=null && lot.getBonEntree() !=null){
+                if(lot.getBonEntree().getDecision().equals("Acceptation")){
+                    res.add(lot);
+                }
+            }
+        }
+        return res;    }
 }

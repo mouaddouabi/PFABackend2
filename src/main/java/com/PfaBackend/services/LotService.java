@@ -32,4 +32,8 @@ public interface LotService {
 
     List<Lot> findLotFumNotCond();
     public List<Lot> findLotFumNotCondMod(Long id);
-    }
+
+    List<Lot> findAllFum();
+
+    List<Lot> findLotFumMod(Long id);
+}

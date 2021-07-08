@@ -47,6 +47,7 @@ public class Lot {
    @JsonBackReference
    @OneToOne(mappedBy = "lot")
    private FicheReception ficheReception;
+   @JsonIgnore
    @OneToOne(mappedBy = "lot")
    private FicheHumidite ficheHumidite;
    @JsonIgnore

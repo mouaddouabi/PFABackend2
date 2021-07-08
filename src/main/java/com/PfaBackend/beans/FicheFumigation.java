@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 import java.util.Set;
 
@@ -20,13 +23,18 @@ public class FicheFumigation {
    @Id
    @GeneratedValue(strategy =  GenerationType.AUTO)
    private Long codeFumigation;
+   //change
+   @JsonFormat(pattern="yyyy-MM-dd")
    private Date dateFum;
+   @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm")
    private Date heureDFum;
+   @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm")
    private Date heureFinFum;
-   private int dureeFum;
+   private String dureeFum;
    private int tauxPhosphine;
    private String tStockage;
    private String humiditeStockage;
+   //change
    @OneToOne
    @JoinColumn(name = "codeLot",referencedColumnName = "codeLot")
    private Lot lot;

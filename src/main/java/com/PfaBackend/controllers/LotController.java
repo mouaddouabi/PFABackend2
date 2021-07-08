@@ -47,6 +47,17 @@ public class LotController {
         return lotService.findAllRec();
     }
 
+    //change
+    @GetMapping("/lot/fum")
+    public List<Lot> getAllfum(){
+        return lotService.findAllFum();
+    }
+    /**************************************************/
+    @GetMapping("/lot/fummod/{id}")
+    public List<Lot> getLotFummod(@PathVariable(value = "id") Long id){
+        return lotService.findLotFumMod(id);
+    }
+    /*****************************************************/
     @DeleteMapping("/lot/{id}")
     public void deleteById(@PathVariable(value = "id") Long id){
         lotService.delete(id);
